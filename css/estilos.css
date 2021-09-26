@@ -1,0 +1,481 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Oswald", Arial, helvetica, sans-serif;
+}
+
+body {
+  font-size: 16px;
+  font-family: "Oswald", Arial, helvetica, sans-serif;
+  background: #181d35;
+  color: white;
+  text-align: center;
+}
+
+div#pagina{
+  margin-top: 10px;
+  float:right;
+  text-transform: uppercase;
+}
+
+#pagina a{
+  color:darkorange;
+  text-decoration:none;
+  font-size: 16px;
+}
+
+#info{
+  margin-top: 10px;
+  text-transform: uppercase;
+  float:left;
+}
+
+#info a{
+  color:darkorange;
+  text-decoration:none;
+  font-size: 16px;
+}
+
+div.contenedor-Titulo {
+  margin-top: 0px;
+  width: 100%;
+  height: 40px;
+}
+
+h1.titulo {
+  color: white;
+  font-weight: normal;
+  font-size: 40px;
+  font-family: "Oswald", Arial, helvetica, sans-serif;
+  text-transform: uppercase;
+  border-bottom: 2px solid darkorange;
+}
+
+div#mensaje {
+  width: 100%;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+input#entrada {
+  width: 500px;
+  height: 35px;
+  margin-top: 15px;
+  border-radius: 7px;
+  background-color: white;
+  text-align: center;
+  font-family: "Oswald", Arial, helvetica, sans-serif;
+}
+
+div#arbol {
+  margin-bottom: 15px;
+  width: 100%;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*Estilos para creacion del arbol por listas ul li y estilos*/
+.tree {
+  white-space: nowrap;
+  font-weight: bold;
+}
+
+.tree ul {
+  padding-top: 20px;
+  position: relative;
+
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+}
+
+.tree li {
+  float: left;
+  text-align: center;
+  list-style-type: none;
+  position: relative;
+  padding: 20px 5px 0 5px;
+
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+}
+
+/*Se usara ::before and ::after para dibujar los conectores entre nodos*/
+
+.tree li::before,
+.tree li::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 50%;
+  border-top: 1px solid darkorange;
+  width: 50%;
+  height: 20px;
+}
+.tree li::after {
+  right: auto;
+  left: 50%;
+  border-left: 1px solid darkorange;
+}
+
+/*necesitamos remover los conectores de izq-der de los elementos que no tienen hermano*/
+.tree li:only-child::after,
+.tree li:only-child::before {
+  display: none;
+}
+
+/*remueve el espacio del padre de un hijo unico*/
+.tree li:only-child {
+  padding-top: 0;
+}
+
+/*remueve el conector izq del primer hijo y el derecho del ultimo hijo*/
+.tree li:first-child::before,
+.tree li:last-child::after {
+  border: 0 none;
+}
+/*Se agrega atras el conector vertical de el ultimo de los nodos*/
+.tree li:last-child::before {
+  border-right: 1px solid darkorange;
+  border-radius: 0 5px 0 0;
+  -webkit-border-radius: 0 5px 0 0;
+  -moz-border-radius: 0 5px 0 0;
+}
+.tree li:first-child::after {
+  border-radius: 5px 0 0 0;
+  -webkit-border-radius: 5px 0 0 0;
+  -moz-border-radius: 5px 0 0 0;
+}
+
+/*Se agrega para abajo los conectores de los padres*/
+.tree ul ul::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  border-left: 1px solid darkorange;
+  width: 0;
+  height: 20px;
+}
+
+.tree li a {
+  border: 1px solid darkorange;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: white;
+  font-family: arial, verdana, tahoma;
+  font-size: 11px;
+  display: inline-block;
+
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+}
+
+/*Efectos hover*/
+/*Se aplican efectos hover sobre el linaje de los hijos de los elementos*/
+.tree li a:hover,
+.tree li a:hover + ul li a {
+  background: rgb(245, 168, 73);
+  color: white;
+  border: 1px solid rgb(170, 95, 3);
+}
+/*Estilos del conector en efecto hover*/
+.tree li a:hover + ul li::after,
+.tree li a:hover + ul li::before,
+.tree li a:hover + ul::before,
+.tree li a:hover + ul ul::before {
+  border-color: rgb(245, 168, 73);
+}
+
+input#boton {
+  color: white;
+  background: transparent;
+  border: 2px solid #2e344e;
+  border-radius: 6px;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 60px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  margin-right: 0px;
+  text-transform: lowercase;
+}
+
+div#huffman {
+  position: relative;
+  width: 100%;
+  height: 800px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+div#tabla {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+  margin-bottom: 20px;
+}
+
+div#bits_info {
+  margin-top: 25px;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div#codificacion {
+  margin-top: 25px;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 100px;
+}
+
+caption {
+  padding: 0.3em;
+  font-weight: bolder;
+  color: white;
+  text-transform: uppercase;
+  background: darkorange;
+  font-size: 20px;
+}
+
+td {
+  width: auto;
+  text-align: center;
+  vertical-align: middle;
+  border: 0.7px solid darkorange;
+  border-collapse: collapse;
+  padding: 0em;
+  caption-side: bottom;
+}
+
+th {
+  font-weight: bolder;
+  color: #181d35;
+  background: rgb(230, 153, 60);
+}
+
+div#autoria {
+  position: fixed;
+  bottom: 0;
+  z-index: 999999;
+  font: bold;
+  margin-bottom: 15px;
+  margin-right: 0;
+  margin-top: 15px;
+}
+
+h3#subtitulo {
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+}
+
+div#informacion {
+  position: fixed;
+  bottom: 0;
+  z-index: 999999;
+  background-color: darkorange;
+  width: 100%;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+fieldset {
+  border-color: darkorange;
+  border: 2px solid darkorange;
+  padding: 16px;
+  border-radius: 6px;
+}
+
+legend {
+  margin-left: 16px;
+}
+
+@-webkit-keyframes progress-bar-stripes {
+  from {
+    background-position: 1rem 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+@keyframes progress-bar-stripes {
+  from {
+    background-position: 1rem 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+.progress {
+  display: -ms-flexbox;
+  display: flex;
+  height: 1rem;
+  overflow: hidden;
+  font-size: 0.75rem;
+  background-color: #e9ecef;
+  border-radius: 0.25rem;
+}
+.progress-bar {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  background-color: #007bff;
+  transition: width 0.6s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .progress-bar {
+    transition: none;
+  }
+}
+.progress-bar-striped {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.15) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 1rem 1rem;
+}
+.progress-bar-animated {
+  -webkit-animation: progress-bar-stripes 1s linear infinite;
+  animation: progress-bar-stripes 1s linear infinite;
+}
+.bg-success {
+  background-color: #04da36 !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .progress-bar-animated {
+    -webkit-animation: none;
+    animation: none;
+  }
+}
+
+@import "compass/css3";
+.chart1 {
+  display: table;
+  table-layout: fixed;
+  width: 60%;
+  max-width: 350px;
+  height: 100px;
+  margin: 0 auto;
+  font-style: italic;
+}
+.chart1 li {
+  position: relative;
+  display: table-cell;
+  vertical-align: bottom;
+  height: 100px;
+}
+.chart1 span {
+  margin: 0 1em;
+  display: block;
+  background: #007bff;
+  animation: draw 1s ease-in-out;
+}
+
+.chart1 span:before {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  display: block;
+  text-align: center;
+  content: attr(title);
+  word-wrap: break-word;
+}
+
+.chart2 {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  max-width: 700px;
+  height: 200px;
+  margin: 0 auto;
+  background-image: linear-gradient(bottom, #007bff 2%, transparent 2%);
+  background-size: 100% 50px;
+  background-position: left top;
+}
+.chart2 li {
+  position: relative;
+  display: table-cell;
+  vertical-align: bottom;
+  height: 200px;
+}
+.chart2 span {
+  margin: 0 1em;
+  display: block;
+  background: #007bff;
+  animation: draw 1s ease-in-out;
+}
+
+.chart2 span {
+  margin: 0 1em;
+  display: block;
+  background: #04da36;
+  animation: draw 1s ease-in-out;
+}
+.chart2 span:before {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  display: block;
+  text-align: center;
+  content: attr(title);
+  word-wrap: break-word;
+}
+@keyframes draw {
+  0% {
+    height: 0;
+ }
+}
+
+#contenido{
+  text-align: center;
+  width:100%;
+  text-justify: newspaper;
+  margin-top: 30px;
+}
+
+#contenido p{
+  text-align: center;
+  text-indent: 12;
+}
+
+#contenido ul{
+  padding-left: 3rem;
+  list-style-type: square;
+  list-style-position:initial;
+}
+
+#contenido table{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

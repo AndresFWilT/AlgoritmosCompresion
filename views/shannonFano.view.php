@@ -91,7 +91,7 @@
 <script>
     var oilCanvas = document.getElementById("myChart").getContext("2d");
 
-    Chart.defaults.global.defaultFontFamily = "Helvetica";
+    Chart.defaults.global.defaultFontFamily = "Impact";
     Chart.defaults.global.defaultFontSize = 12;
 
     var oilData = {

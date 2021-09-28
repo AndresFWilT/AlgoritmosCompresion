@@ -18,6 +18,7 @@
     <div class="contenedor-Titulo">
         <h1 class="titulo">Codificaci&oacute;n Huffman</h1>
     </div>
+    </br>
     <div id="info">
         <a href="../views/index.view.php">Aplicaci&oacute;n Codificac&iacute;on Huffman</a>
     </div>

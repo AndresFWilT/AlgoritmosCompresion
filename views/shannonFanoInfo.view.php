@@ -18,6 +18,7 @@
     <div class="contenedor-Titulo">
         <h1 class="titulo">Codificaci&oacute;n Shannon-Fano</h1>
     </div>
+    </br>
     <div id="info">
         <a href="../views/shannonFano.view.php">Aplicacion Codificac&iacute;on Shannon-Fano</a>
     </div>

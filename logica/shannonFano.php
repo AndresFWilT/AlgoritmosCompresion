@@ -50,6 +50,7 @@ class shannon_Fano
         $this->hacerTablaHTML(sizeOf($this->matriz[0]) + 5);
         //Para realizar la codificacion del mensaje
         $this->mensajeCodificado = $this->codificacionMsj();
+        $this->armarMsjCod();
         $this->bitsDatos = $this->calculoAhorro($this->mensaje);
         //Determinacion de saltos '</br>' segun tamaño del mensaje
         $this->saltos = "</br>";
@@ -250,7 +251,7 @@ class shannon_Fano
         //Se determina el # de columnas
         for ($fil = 0; $fil < sizeOf($this->shannonFano); $fil++) {
             if ($col < strlen($this->shannonFano[$fil])) {
-                $col = $fil;
+                $col = strlen($this->shannonFano[$fil]);
             }
         }
         $col += 1;
@@ -383,7 +384,7 @@ class shannon_Fano
             for ($j = 0; $j <= $tamaño; $j++) {
                 if ($i == 0) {
                     $this->tablaHTML .= "<th><h3><big>" . $this->tablaFinal[$i][$j] . "</big></h3></th>";
-                } else if ($i == $tamaño + 1) {
+                } else if ($i == sizeOf($this->shannonFano) + 1) {
                     $this->tablaHTML .= "<th><h3><big>" . $this->tablaFinal[$i][$j] . "</big></h3></th>";
                 } else {
                     $this->tablaHTML .= "<td><big>" . $this->tablaFinal[$i][$j] . "</big></td>";
@@ -443,6 +444,21 @@ class shannon_Fano
         return $this->mnsjCod;
     }
 
+    private function armarMsjCod(){
+        $cadena = $this->mensajeCodificado;
+        $size = sizeOf($this->matriz[0])-1;
+        $cadenaIni = "";
+        for($i = 0;$i < sizeOf($this->shannonFano);$i++){
+            if($i === sizeOf($this->shannonFano)-1){
+                $cadenaIni .= $this->caracteres[$i] . " = " . $this->matriz[$i+1][$size];
+            }else{
+                $cadenaIni .= $this->caracteres[$i] . " = " . $this->matriz[$i+1][$size] .", ";
+            }
+            
+        }
+        $this->mensajeCodificado = $cadenaIni . "</br>".$cadena ."</br>" . '<p style="color:#800080;">Mensaje original</p>'.$this->mensaje;
+    }
+
     //Funcion que determina los saltos '</br> en funcion del tamaño del mensaje'
     //Con el objetivo de no superponer elementos HTML
     private function saltosBr($tamaño)
@@ -450,7 +466,7 @@ class shannon_Fano
         // tamaño con 7 se superpone, y apartir de este numero, cada 1 en tamaño un br
         if ($tamaño > 7) {
             for ($i = 7; $i < $tamaño; $i++) {
-                if ($i % 3 == 0) {
+                if ($i % 4 == 0) {
                     $this->saltos .= "</br>";
                 }
             }

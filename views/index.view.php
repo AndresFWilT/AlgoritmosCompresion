@@ -18,6 +18,7 @@
     <div class="contenedor-Titulo">
         <h1 class="titulo">Codificaci&oacute;n Huffman</h1>
     </div>
+    </br>
     <div id="pagina">
         <a href="../views/shannonFano.view.php">Codificac&iacute;on Shannon-Fano</a>
     </div>
@@ -100,7 +101,7 @@
 <script>
     var oilCanvas = document.getElementById("myChart").getContext("2d");
 
-    Chart.defaults.global.defaultFontFamily = "Helvetica";
+    Chart.defaults.global.defaultFontFamily = "Oswald";
     Chart.defaults.global.defaultFontSize = 12;
 
     var oilData = {
@@ -114,7 +115,7 @@
                 "#007bff",
                 "#04da36"
             ],
-            borderColor: "#2e344e",
+            borderColor: "darkorange",
             borderWidth: 1
         }]
     };

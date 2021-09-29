@@ -223,7 +223,7 @@ class shannon_Fano
         $this->entropia = array();
         $this->entropiaMsj = array();
         for ($i = 0; $i < sizeof($this->shannonFano); $i++) {
-            $this->entropia[$i] = abs($this->redondear(log($this->probabilidades[$i], 2), 3));
+            $this->entropia[$i] = - $this->redondear(log($this->probabilidades[$i], 2), 3);
             $this->entropiaMsj[$i] = $this->redondear($this->entropia[$i] * $this->frecuencias[$i], 3);
         }
     }
@@ -466,7 +466,7 @@ class shannon_Fano
         // tamaño con 7 se superpone, y apartir de este numero, cada 1 en tamaño un br
         if ($tamaño > 7) {
             for ($i = 7; $i < $tamaño; $i++) {
-                if ($i % 4 == 0) {
+                if ($i % 12 == 0) {
                     $this->saltos .= "</br>";
                 }
             }

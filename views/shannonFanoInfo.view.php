@@ -50,7 +50,7 @@
         <p>Para nuestros fines, la entrop&iacute;a se refiere a la cantidad de bits necesarios para representar un s&iacute;mbolo.</br>
         <ul>
             <li>
-                La entrop&iacute;a en un s&iacute;mbolo = - log<sub>2</sub> (X), donde X = Largo de la serie / frecuencia.
+                La entrop&iacute;a en un s&iacute;mbolo = - log<sub>2</sub> (X), donde X = la probabilidad de cada caracter.
             </li>
             <li>
                 La entrop&iacute;a en un mensaje = suma de la entrop&iacute;a de sus s&iacute;mbolos

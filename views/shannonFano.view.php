@@ -23,7 +23,7 @@
         <a href="../views/index.view.php">Codificac&iacute;on Huffman</a>
     </div>
     <div id="info">
-        <a href="shannonFanoInfo.view.php">Informaci&oacute;n acerca de la </br>codificaci&oacute;n Shannon-Fano</a>
+        <a href="../views/shannonFanoInfo.view.php">Informaci&oacute;n acerca de la </br>codificaci&oacute;n Shannon-Fano</a>
     </div>
     <div id="mensaje">
         <form action="../logica/shannonFano.php" method="POST">

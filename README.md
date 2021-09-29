@@ -1,4 +1,4 @@
-<h1>Algoritmos de encriptacion, Huffman y Shannon-Fano</h1>
+<h1>Algoritmos de compresion, Huffman y Shannon-Fano</h1>
 <h2>Integrantes</h2>
 <ul> 
  <li>Andres Felipe Wilches Torres - 20172020114</li>
